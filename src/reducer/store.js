@@ -4,9 +4,9 @@ import oompasReducer from './oompasSlice';
 import oompasDetailsReducer from './oompasDetailsListSlice';
 
 export default configureStore({
-  reducer: {
-    counter: counterReducer,
-    oompasList: oompasReducer,
-    oompasDetailsList: oompasDetailsReducer
-  },
+    reducer: {
+        counter: counterReducer,
+        oompasList: oompasReducer,
+        oompasDetailsList: oompasDetailsReducer
+    }
 });

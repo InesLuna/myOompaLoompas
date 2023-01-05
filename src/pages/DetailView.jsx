@@ -45,8 +45,8 @@ export const DetailView = () => {
             <NavBar />
             {
                 oompasInfo ? (
-                    <div className='px-20 flex pt-20'>
-                        <img src={oompasInfo.image} alt={oompasInfo.first_name} className='pr-10 flex-wrap md:flex-nowrap'/>
+                    <div className='flex p-6 md:p-20 flex-wrap md:flex-nowrap'>
+                        <img src={oompasInfo.image} alt={oompasInfo.first_name} className='md:pr-10 flex-wrap md:flex-nowrap'/>
                         <div>
                             <p className='pt-6 text-lg font-bold'>{oompasInfo.first_name}{' '}{oompasInfo.last_name} </p>
                             <p className='text-slate-500 ' >{oompasInfo.gender === 'F' ? 'Woman' : 'Man'}</p>

@@ -10,7 +10,7 @@ import { getOompas } from '../bff/getOompas';
 import { GoTopButton } from '../components/GoTopButton';
 
 
-export const GeneralView = (props) => {
+export const GeneralView = () => {
 
     const dispatch = useDispatch();
     const count = useSelector((state) => state.counter.value);
@@ -69,12 +69,12 @@ export const GeneralView = (props) => {
     }
   
     return (
-        <div>
+        <div className=''>
             <NavBar />
-            <div className='md:mx-11'>
+            <div className='md:mx-11 p-6 md:p-0'>
                 <SearchInput handleChange={handleChange} />
-                <h1 className='text-5xl text-center mt-20'>Find your Oompa Loompa</h1>
-                <h3 className='text-4xl text-center text-slate-500 mb-20 mt-3'>There are more than 100k</h3>
+                <h1 className='text-5xl text-center mt-6 md:mt-20'>Find your Oompa Loompa</h1>
+                <h3 className='text-4xl text-center text-slate-500 mb-6 md:mb-20 mt-3'>There are more than 100k</h3>
                 {
                     oompasListFiltered.length > 0 ? (
                         <div className='flex flex-wrap p-3'>
