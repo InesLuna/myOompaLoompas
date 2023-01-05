@@ -18,7 +18,7 @@ const router = createBrowserRouter([
       errorElement: <NoMatchs />,
     },
     {
-        path: "detail",
+        path: "detail/:oompasId",
         element: <DetailView />,
     }
   ]);

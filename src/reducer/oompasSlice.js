@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export const oompasSlice = createSlice({
-  name: 'counter',
+  name: 'oompasList',
   initialState: {
-    oompasList: [],
+    value: [],
   },
   reducers: {
     oompasAdd: (state, action) => {
-      state.push(action.payload)
+      state.value = [...state.value, ...action.payload];
     }
   },
 });

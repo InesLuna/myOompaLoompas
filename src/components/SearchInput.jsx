@@ -1,6 +1,8 @@
 import React from 'react'
 
-export const SearchInput = () => {
+export const SearchInput = (props) => {
+
+    const { handleChange } = props;
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -15,7 +17,7 @@ export const SearchInput = () => {
                 type="text" 
                 name="search"
                 onChange={(e) => {
-                
+                    handleChange(e);
                 }}
             />
             <div className="w-10 min-h-full flex items-center justify-center  cursor-pointer border-slate-300 border-l-2 m-2 " onClick={(e) => handleClick(e)}>
