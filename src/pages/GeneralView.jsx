@@ -65,15 +65,9 @@ export const GeneralView = (props) => {
     };
 
     const handleChange = (e) => {
-        console.log(e.target.value);
         setInputValue(e.target.value);
     }
-
-    useEffect(()=>{
-        console.log(oompasListFiltered);
-    },[oompasListFiltered]);
   
-
     return (
         <div>
             <NavBar />

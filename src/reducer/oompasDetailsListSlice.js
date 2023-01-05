@@ -6,10 +6,15 @@ export const oompasDetailsSlice = createSlice({
     oompasIds: [],
     actualId: 1,
     oompasDetailsList: [],
+    actualOompa: {}
   },
   reducers: {
     oompasDetailsAdd: (state, action) => {
       state.oompasDetailsList.push(action.payload)
+    },
+    oompasDetailsReplace: (state, action) => {
+      const aux = state.oompasDetailsList.filter((o) => action.payload.id !== o.id );
+      state.oompasDetailsList = [...aux, action.payload];
     },
     oompasIdsAdd: (state, action) => {
         state.oompasIds.push(action.payload)
@@ -20,6 +25,6 @@ export const oompasDetailsSlice = createSlice({
   },
 });
 
-export const { oompasDetailsAdd, oompasIdsAdd, oompasSetActualId } = oompasDetailsSlice.actions;
+export const { oompasDetailsAdd, oompasIdsAdd, oompasSetActualId, oompasDetailsReplace } = oompasDetailsSlice.actions;
 
 export default oompasDetailsSlice.reducer;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavBar } from '../components/NavBar';
 import { useSelector, useDispatch } from 'react-redux';
-import { oompasIdsAdd, oompasDetailsAdd } from '../reducer/oompasDetailsListSlice';
+import { oompasIdsAdd, oompasDetailsAdd, oompasDetailsReplace } from '../reducer/oompasDetailsListSlice';
 import { getOompasDetails } from '../bff/getOompasDetails';
 import { useState, useEffect } from 'react';
 
@@ -15,24 +15,30 @@ export const DetailView = () => {
 
     const dataDetailsOompa = async (num) => {
         const data = await getOompasDetails(num);
-        if(data && !oompasIdsList.find((o)=> o.id === num)) {
-            const aux = {num:`${num}`, info:{...data}};
+    
+        if(data) {
+            const date = Number(Date());
+            const aux = {id:`${num}`, info:{...data}, timestamp: date};
             dispatch(oompasDetailsAdd(aux));
             dispatch(oompasIdsAdd(actualOompasId));
+            setOompasInfo(aux.info);
         }
     };
 
     useEffect(()=>{
-        dataDetailsOompa(actualOompasId);  
+        if(oompasIdsList.includes(actualOompasId)){ 
+            const aux = oompasDetailsList.filter((o) => o.id === `${actualOompasId}`);
+            const auxDate = Number(Date());
+            if(aux.timestamp - auxDate !== 86400000) {
+                setOompasInfo(aux[0].info);
+            } else {
+                dispatch(oompasDetailsReplace(aux[0]));
+            }
+            
+        } else {
+            dataDetailsOompa(actualOompasId)
+        }  
     }, [actualOompasId]);
-
-    useEffect(()=>{
-        if(oompasDetailsList.length > 0) {
-            const aux = oompasDetailsList.filter((o) => o.num === `${actualOompasId}`);
-            setOompasInfo(aux[0].info);
-            console.log(aux);
-        } 
-    }, [oompasDetailsList]);
 
     return (
         <div className=''>
