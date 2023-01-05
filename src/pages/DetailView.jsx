@@ -45,7 +45,7 @@ export const DetailView = () => {
                             <p className='pt-6 text-lg font-bold'>{oompasInfo.first_name}{' '}{oompasInfo.last_name} </p>
                             <p className='text-slate-500 ' >{oompasInfo.gender === 'F' ? 'Woman' : 'Man'}</p>
                             <p className='text-slate-500 italic'>{oompasInfo.profession}</p>
-                            <p className='pt-10'>{oompasInfo.description}</p>
+                            <p className='pt-10' dangerouslySetInnerHTML={{__html: oompasInfo.description}}/>
                         </div>  
                     </div>
                 ) : (
