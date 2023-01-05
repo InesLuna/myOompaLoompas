@@ -1,3 +1,8 @@
+# My Oompa Loompas 
+
+Single page aplication que conecta con un par de apis para hacer un display genérico de un listado de trabajadores ficticios con un scroll infinito y un sistema de filtro por nombr ey preofesión, así com una vista de detalle de cada uno de los trabajadores.
+Creada con React, Redux y React Router Dom, la librería de css usada es Tailwindcss.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
